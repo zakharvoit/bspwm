@@ -1,0 +1,57 @@
+
+#
+# bspwm hotkeys
+#
+
+super + shift + q
+	bspc quit
+
+super + shift + c
+	bspc window -c
+
+super + space
+	bspc desktop -l next
+
+super + {s,f}
+	bspc window -t {floating,fullscreen}
+
+super + shift + space
+	bspc window -s biggest
+
+super + {j,k}
+  bspc window -f {next,prev}
+
+super + shift + {j,k}
+	bspc desktop -C {backward,forward}
+
+super + {h,l}
+  bspc window -e {left -30,left +30}
+
+~button1
+	bspc pointer -g focus
+
+super + {_,shift + } w
+	{~/bin/switch_workspace_dmenu.sh, ~/bin/move_window_dmenu.sh}
+
+super + r
+	~/bin/remove_workspace_dmenu.sh
+
+super + e
+	edit
+
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,window -d} ^{1-9,10}
+
+#
+# wm independent hotkeys
+#
+
+super + shift + Return
+	urxvt
+
+super + p
+	dmenu_run
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
